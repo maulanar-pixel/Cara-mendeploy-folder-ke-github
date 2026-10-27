@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0B1B2B">
+<title>SimpAset — Pencatat Aset Fisik Pribadi</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="description" content="SimpAset — catat barang yang Anda beli, simpan aman di cloud, dan lihat total kekayaan bersih berupa barang.">
+<link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<div id="app-shell">
+
+  <!-- ================= LAYAR 1: LOGIN ================= -->
+  <section id="screen-login" class="screen">
+    <div class="login-wrap">
+      <div class="brand">
+        <div class="brand-mark">SA</div>
+        <div>
+          <div class="brand-name">Simp<span>Aset</span></div>
+          <div class="brand-sub">Physical Asset Tracker</div>
+        </div>
+      </div>
+
+      <div class="vault">
+        <svg viewBox="0 0 220 190" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="vg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#E8C784"/><stop offset="1" stop-color="#B9873A"/>
+            </linearGradient>
+            <linearGradient id="vb" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1E4straight"/><stop offset="1" stop-color="#14293C"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="110" cy="176" rx="70" ry="9" fill="#000" opacity=".28"/>
+          <!-- safe body -->
+          <rect x="30" y="34" width="160" height="132" rx="14" fill="#15293C" stroke="#2A4761" stroke-width="2"/>
+          <rect x="42" y="46" width="136" height="108" rx="10" fill="#0E1F2E" stroke="#254158" stroke-width="1.5"/>
+          <!-- door -->
+          <rect x="60" y="56" width="100" height="88" rx="8" fill="#12293C" stroke="url(#vg)" stroke-width="2"/>
+          <circle cx="110" cy="100" r="25" stroke="url(#vg)" stroke-width="2.5" fill="none" opacity=".9"/>
+          <circle cx="110" cy="100" r="11" fill="url(#vg)" opacity=".85"/>
+          <circle cx="110" cy="100" r="4" fill="#0E1F2E"/>
+          <!-- spokes -->
+          <g stroke="url(#vg)" stroke-width="2.4" stroke-linecap="round" opacity=".9">
+            <path d="M110 70v9M110 121v9M80 100h9M131 100h9"/>
+            <path d="M89 79l6 6M125 115l6 6M131 79l-6 6M95 115l-6 6"/>
+          </g>
+          <!-- lock knob right -->
+          <rect x="146" y="92" width="8" height="16" rx="4" fill="url(#vg)" opacity=".9"/>
+          <!-- hinges -->
+          <rect x="50" y="70" width="6" height="14" rx="3" fill="#2A4761"/>
+          <rect x="50" y="116" width="6" height="14" rx="3" fill="#2A4761"/>
+          <!-- floating coins -->
+          <g opacity=".95">
+            <circle cx="184" cy="52" r="11" fill="url(#vg)"/><text x="184" y="57" font-size="10" font-weight="800" fill="#3A2A08" text-anchor="middle">Rp</text>
+            <circle cx="202" cy="86" r="7.5" fill="url(#vg)" opacity=".6"/>
+            <circle cx="170" cy="26" r="6" fill="url(#vg)" opacity=".45"/>
+          </g>
+          <g opacity=".9">
+            <rect x="16" y="60" width="26" height="18" rx="3" fill="#1B3A52" stroke="#2F5872"/>
+            <path d="M16 66h26" stroke="#2F5872"/>
+            <rect x="20" y="82" width="20" height="14" rx="2" fill="#1B3A52" stroke="#2F5872" opacity=".7"/>
+          </g>
+        </svg>
+      </div>
+
+      <h1 class="login-title">Catat aset Anda.<br>Ketahui nilai asli kekayaan Anda.</h1>
+      <p class="login-desc">SimpAset mencatat setiap barang yang Anda beli — foto, harga, tanggal — lalu menjumlahkannya menjadi satu angka: total aset fisik Anda. Aman di cloud, tanpa prediksi AI.</p>
+
+      <button class="btn-google" id="btn-google">
+        <svg viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-2.8-.4-4.1H24v7.8h12.1c-.2 2-1.5 5-4.4 7l-.1.2 6.4 4.9.4.1c4-3.7 6.7-9.2 6.7-15.9"/><path fill="#34A853" d="M24 46c5.9 0 10.9-1.9 14.5-5.3l-6.9-5.4c-1.9 1.3-4.4 2.2-7.6 2.2-5.7 0-10.6-3.8-12.3-9l-.1.1-6.6 5.1-.1.1C8.4 41 15.6 46 24 46"/><path fill="#FBBC05" d="M11.7 28.5c-.5-1.4-.8-2.9-.8-4.5s.3-3.2.7-4.5v-.2l-6.7-5.2-.1.1C3.1 17 2 20.4 2 24s1.1 6.9 2.9 9.8l6.8-5.3"/><path fill="#EA4335" d="M24 10.6c4 0 6.7 1.7 8.3 3.2l6-5.9C34.8 4.4 29.9 2 24 2 15.6 2 8.4 7 4.9 14.2l6.8 5.3C13.4 14.4 18.3 10.6 24 10.6"/></svg>
+        Masuk dengan Google
+      </button>
+      <button class="btn-outline" id="btn-tab-email">Daftar / Masuk dengan Email</button>
+      <button class="btn-demo" id="btn-demo">Coba Mode Demo (tanpa akun, data di perangkat)</button>
+
+      <div id="email-form" class="hidden">
+        <div class="divider">atau dengan email</div>
+        <div class="field-dark"><label>Nama lengkap</label><input id="in-name" type="text" placeholder="Nama Anda" autocomplete="name"></div>
+        <div class="field-dark"><label>Email</label><input id="in-email" type="email" placeholder="nama@email.com" autocomplete="email"></div>
+        <div class="field-dark"><label>Kata sandi</label><input id="in-pass" type="password" placeholder="Minimal 6 karakter" autocomplete="current-password"></div>
+        <button class="btn-gold" id="btn-email-submit">Masuk ke SimpAset</button>
+        <p style="font-size:10.5px;color:#7D90A5;text-align:center;margin:10px 0 0;line-height:1.5">Dengan masuk, data aset Anda akan disinkronkan ke cloud.</p>
+      </div>
+
+      <p class="login-foot">SimpAset mencatat nilai pembelian — bukan harga jual atau prediksi nilai. Tidak ada AI, tidak ada taksiran: hanya catatan Anda sendiri.</p>
+    </div>
+  </section>
+
+  <!-- ================= LAYAR 2: DASBOR ================= -->
+  <section id="screen-dash" class="screen hidden">
+    <div class="topbar">
+      <div class="who">
+        <div class="avatar" id="dash-avatar">R</div>
+        <div>
+          <div class="hello">Halo,</div>
+          <div class="hello-name" id="dash-name">Pengguna</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:7px">
+        <button class="icon-btn" id="btn-sync" title="Status sinkronisasi">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-8.5-6"/><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 8.5 6"/><path d="M3 21v-6h6M21 3v6h-6"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-logout" title="Keluar">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="scroll" id="dash-scroll">
+      <div class="hero">
+        <div class="hero-top">
+          <div class="hero-label">Total Aset Fisik Anda</div>
+          <div class="pill" id="hero-count">0 item</div>
+        </div>
+        <div class="hero-total" id="hero-total"><span class="rp">Rp</span>0</div>
+        <div class="hero-meta">
+          <div>Kategori <b id="hero-cats">0</b></div>
+          <div>Rata-rata <b id="hero-avg">Rp 0</b></div>
+        </div>
+        <div class="hero-actions">
+          <button class="chip" id="chip-add">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Tambah
+          </button>
+          <button class="chip" id="chip-pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>PDF
+          </button>
+          <button class="chip" id="chip-xls">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8l8 8M16 8l-8 8"/></svg>Excel
+          </button>
+          <button class="chip" id="chip-png">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>PNG
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Alokasi Aset per Kategori</div>
+            <div class="card-sub" id="pie-sub">0 kategori</div>
+          </div>
+        </div>
+        <div class="chart-row">
+          <div class="pie-wrap"><canvas id="pie"></canvas></div>
+          <ul class="legend" id="legend"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Portofolio Aset Fisik</div>
+          <div class="card-sub">Harga beli</div>
+        </div>
+        <table class="tbl" id="tbl-dash">
+          <thead>
+            <tr><th>Kategori</th><th class="r">Item</th><th class="r">Total</th><th class="r">%</th></tr>
+          </thead>
+          <tbody id="tbl-dash-body"></tbody>
+          <tfoot>
+            <tr>
+              <td><span class="lbl">Total Aset</span></td>
+              <td class="r num" id="tf-items">0</td>
+              <td class="r num" id="tf-total">Rp 0</td>
+              <td class="r num">100%</td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="empty hidden" id="dash-empty">Belum ada aset tercatat.<br>Tekan tombol <b>+</b> untuk menambah barang pertama Anda.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Kategori Saya</div>
+          <button class="card-sub" id="btn-add-cat" style="color:var(--teal-dk);font-weight:800">+ Kategori</button>
+        </div>
+        <div class="cat-cards" id="cat-cards"></div>
+      </div>
+
+      <div class="card" style="background:#FBFCFE">
+        <div style="display:flex;gap:9px;align-items:flex-start">
+          <div style="width:30px;height:30px;border-radius:9px;background:#EAF6F4;display:grid;place-items:center;flex:0 0 30px">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0D8378" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:800;margin-bottom:3px" id="sync-title">Mode Demo — data di perangkat</div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.55" id="sync-desc">Data tersimpan di penyimpanan lokal browser ini. Hubungkan Supabase (lihat README) agar data tersinkron ke cloud dan aman bila HP hilang.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="fab" id="fab-add" aria-label="Tambah barang">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </section>
+
+  <!-- ================= LAYAR 4: DETAIL KATEGORI ================= -->
+  <section id="screen-cat" class="screen hidden">
+    <div class="detail-head">
+      <button class="back-btn" id="cat-back">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0F1E2E" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div style="flex:1;min-width:0">
+        <div class="detail-title" id="cat-title">Kategori</div>
+        <div class="detail-sub" id="cat-sub">0 item</div>
+      </div>
+    </div>
+    <div class="exports">
+      <button class="exp-btn" id="cat-pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>PDF
+      </button>
+      <button class="exp-btn" id="cat-xls">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8l8 8M16 8l-8 8"/></svg>Excel
+      </button>
+      <button class="exp-btn" id="cat-png">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>PNG
+      </button>
+    </div>
+    <div class="scroll" id="cat-scroll" style="padding:2px 16px 120px">
+      <div class="total-strip">
+        <div>
+          <div class="l">Total nilai kategori ini</div>
+          <div class="v" id="cat-total">Rp 0</div>
+        </div>
+        <div class="r">Jumlah item<b id="cat-count-strip">0</b></div>
+      </div>
+      <div id="cat-items"></div>
+      <div class="empty hidden" id="cat-empty">Belum ada barang di kategori ini.<br>Tekan tombol <b>+</b> untuk menambah.</div>
+    </div>
+    <button class="fab" id="fab-cat-add" aria-label="Tambah barang ke kategori ini">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </section>
+
+  <!-- ================= LAYAR 3: FORM TAMBAH/EDIT ================= -->
+  <div class="sheet-wrap hidden" id="sheet">
+    <div class="sheet-bg" id="sheet-bg"></div>
+    <div class="sheet">
+      <div class="sheet-grab"></div>
+      <div class="sheet-head">
+        <div class="sheet-title" id="sheet-title">Tambah Barang Baru</div>
+        <button class="sheet-close" id="sheet-close">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="sheet-body">
+        <label class="photo-box" id="photo-box">
+          <input type="file" accept="image/*" capture="environment" id="in-photo" class="hidden">
+          <div id="photo-placeholder" style="display:flex;flex-direction:column;align-items:center;gap:6px">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            Ambil Foto Barang
+          </div>
+          <img id="photo-preview" class="hidden" alt="Foto barang">
+          <div class="rm hidden" id="photo-rm">×</div>
+        </label>
+        <div class="photo-cap">Foto tidak wajib — bisa dilewati</div>
+
+        <div class="f">
+          <label for="in-item-name">Nama Barang</label>
+          <input id="in-item-name" type="text" placeholder="Contoh: Laptop Asus ROG G16" maxlength="80">
+        </div>
+        <div class="f">
+          <label for="in-item-cat">Kategori</label>
+          <select id="in-item-cat"></select>
+        </div>
+        <div class="f2">
+          <div class="f">
+            <label for="in-price">Harga Beli</label>
+            <div class="rp-input"><span>Rp</span><input id="in-price" type="text" inputmode="numeric" placeholder="0"></div>
+          </div>
+          <div class="f">
+            <label for="in-date">Tanggal Beli</label>
+            <input id="in-date" type="date" min="1900-01-01">
+          </div>
+        </div>
+        <div class="f">
+          <label for="in-notes">Catatan Tambahan <span class="opt">(opsional)</span></label>
+          <textarea id="in-notes" placeholder="Nomor seri, toko tempat beli, lokasi simpan, kondisi..." maxlength="300"></textarea>
+        </div>
+        <input type="hidden" id="in-item-id">
+      </div>
+      <div class="sheet-foot">
+        <button class="btn-ghost" id="sheet-cancel">Batal</button>
+        <button class="btn-save" id="sheet-save">Simpan ke Aset Saya</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div id="dialog-root"></div>
+  <div id="report-root" style="position:fixed;left:-9999px;top:0"></div>
+</div>
+
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/jspdf.umd.min.js"></script>
+<script src="vendor/jspdf.plugin.autotable.min.js"></script>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="vendor/html2canvas.min.js"></script>
+<script src="vendor/supabase.js"></script>
+<script src="src/config.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
